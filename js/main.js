@@ -27,8 +27,7 @@ function getLocal() {
 
 // REMOVE ELEMENT VIEW
 function removeBook(itemToDelete) {
-  const deleteItem = document.getElementById(itemToDelete).parentNode
-    .parentNode;
+  const deleteItem = document.getElementById(itemToDelete).parentNode;
   const deleteItemIndex = books.findIndex((e) => e.title === itemToDelete);
   deleteItem.remove();
   books.splice(deleteItemIndex, 1);
@@ -50,7 +49,7 @@ function AddElement() {
 
   const li = document.createElement('li');
   books.forEach((element) => {
-    li.innerHTML = `<li>${element.title} by ${element.author} <button id="${element.title}" class="remove-button">Remove</button></li>`;
+    li.innerHTML = `${element.title} by ${element.author} <button id="${element.title}" class="remove-button">Remove</button>`;
     ul.appendChild(li);
   });
 }
