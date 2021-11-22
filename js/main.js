@@ -1,5 +1,5 @@
 const ul = document.getElementById('display-books');
-
+const form = document.getElementById('form-books');
 let books = [];
 
 class SingleBook {
@@ -26,7 +26,16 @@ function getLocal() {
 }
 
 // REMOVE ELEMENT VIEW
-ul.addEventListener('click', e => {
+function removeBook(itemToDelete) {
+  const deleteItem = document.getElementById(itemToDelete).parentNode
+    .parentNode;
+  const deleteItemIndex = books.findIndex((e) => e.title === itemToDelete);
+  deleteItem.remove();
+  books.splice(deleteItemIndex, 1);
+  addLocal();
+}
+
+ul.addEventListener('click', (e) => {
   let itemToDelete;
   if (e.target.classList.contains('remove-button')) {
     itemToDelete = e.target.id;
@@ -35,23 +44,14 @@ ul.addEventListener('click', e => {
   removeBook(itemToDelete);
 });
 
-function removeBook(itemToDelete) {
-  const deleteItem = document.getElementById(itemToDelete).parentNode
-    .parentNode;
-  const deleteItemIndex = books.findIndex(e => e.title === itemToDelete);
-  deleteItem.remove();
-  books.splice(deleteItemIndex, 1);
-  addLocal();
-}
-
 // ADD NEW ELEMENTS VIEW
 function AddElement() {
   getLocal();
 
   const li = document.createElement('li');
-  books.forEach(element => {
-    (li.innerHTML = `<li>${element.title} by ${element.author} <button id="${element.title}" class="remove-button">Remove</button></li>`),
-      ul.appendChild(li);
+  books.forEach((element) => {
+    li.innerHTML = `<li>${element.title} by ${element.author} <button id="${element.title}" class="remove-button">Remove</button></li>`;
+    ul.appendChild(li);
   });
 }
 
@@ -60,7 +60,7 @@ function AddElement() {
 function showAll() {
   if (localStorage.getItem('books') !== null) {
     getLocal();
-    books.forEach(e => {
+    books.forEach((e) => {
       ul.insertAdjacentHTML(
         'beforeend',
         `<li>${e.title} by ${e.author} <button id="${e.title}" class="remove-button">Remove</button></li>`,
@@ -69,8 +69,8 @@ function showAll() {
   }
 }
 
-// ADD ITEMS EVENT LISTNER
-addEventListener('submit', e => {
+// ADD ITEMS EVENT LISTENER
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (e.currentTarget) {
     addBook();
@@ -78,6 +78,6 @@ addEventListener('submit', e => {
   AddElement();
 });
 
-window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('DOMContentLoaded', () => {
   showAll();
 });
