@@ -1,5 +1,5 @@
 const formButton = document.querySelectorAll('form');
-
+const ul = document.getElementById('display-books');
 let books = [];
 
 class SingleBook {
@@ -28,23 +28,38 @@ function getLocal() {
 
 function remove() {}
 
-function show() {
+//ADD NEW ELEMENTS VIEW
+function AddElement() {
   getLocal();
-  const ul = document.getElementById('display-books');
+  
+  const li = document.createElement('li');
   books.forEach(element => {
-    const li = document.createElement('li');
-    ul.append(li);
-    li.innerText = element.title;
-    li.innerText = '<br />';
-    li.innerText = element.author;
-  });
+    li.innerHTML = `<li>${element.title}</li><li>${element.author}</li>`
+    ul.appendChild(li)
+  }); 
 }
+
+//SHOW ALL ELEMENTS
+
+function showAll(){
+  getLocal();
+  books.forEach(e => {
+    ul.insertAdjacentHTML('beforeend',
+     `<li>${e.title}</li><li>${e.author}</li>`
+    )
+  })
+}
+
+//ADD ITEMS EVENT LISTNER
 addEventListener('submit', e => {
   e.preventDefault();
   if (e.currentTarget) {
     addBook();
   }
-  show();
+  AddElement()
 });
 
-window.addEventListener('DOMContentLoaded', event => {});
+window.addEventListener('DOMContentLoaded', event => {
+  showAll();
+  
+});
