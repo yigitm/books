@@ -11,10 +11,10 @@ class CreateBook{
 class Library {
     //set Local
     static setLocal(){
-        localStorage.setItem('Library',JSON.stringify(books));
+        localStorage.setItem('LibraryBooks',JSON.stringify(books));
     }
     // Get items
-    getItems(){
+    static getItems(){
         if(!localStorage.getItem('LibraryBooks')){
             setLocal();
         }
@@ -24,7 +24,12 @@ class Library {
     }
 
     // Add Items
-
-
+    static addItems(title, author){
+        books.push(new CreateBook(title, author));
+    }
     // Remove Items
+    static removeItems(){
+
+    }
+    
 }
