@@ -1,8 +1,9 @@
+/* eslint-disable max-classes-per-file */
+
 const form = document.getElementById('form-books');
 const divCont = document.getElementById('display-books');
 
-
-class Book{
+class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
@@ -10,12 +11,13 @@ class Book{
   }
 }
 class Library {
-  constructor(library= []){
+  constructor(library = []) {
     this.library = library;
   }
 
   // set Local
   setLocal(library) {
+    this.library = library;
     localStorage.setItem('LibraryBooks', JSON.stringify(library));
   }
 
@@ -34,7 +36,6 @@ class Library {
     if (title === '' || author === '') {
       return;
     }
-    console.log('test')
     const book = new Book(title, author);
     this.library.push(book);
     this.setLocal(this.library);
@@ -43,11 +44,9 @@ class Library {
 
   // Remove Items
   removeItems(removeID) {
-    
     const itemIndex = this.library.findIndex(
       (elm) => elm.id === parseInt(removeID, 10),
     );
-    console.log(itemIndex)
     this.library.splice(itemIndex, 1);
     this.setLocal(this.library);
   }
@@ -64,6 +63,8 @@ class Library {
   }
 
   showBook(title, author, id) {
+    this.title = title;
+    this.author = author;
     const li = document.createElement('li');
     li.innerHTML = `${title} by ${author}   <button id="${id}">remove</button>`;
     divCont.appendChild(li);
@@ -72,10 +73,11 @@ class Library {
   removeBook(currentID) {
     const currentBtn = document.getElementById(currentID);
     currentBtn.parentElement.remove();
-    console.log(this.library)
     this.removeItems(currentID);
   }
 }
+
+const lib = new Library();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -90,7 +92,5 @@ divCont.addEventListener('click', (e) => {
   lib.removeBook(e.target.id);
 });
 
-
-const lib = new Library()
 lib.getItems();
 lib.showInitial();
