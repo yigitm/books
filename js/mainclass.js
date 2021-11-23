@@ -1,51 +1,59 @@
-let books = [];
 const form = document.getElementById('form-books');
 const divCont = document.getElementById('display-books');
 
-class Library {
+
+class Book{
   constructor(title, author) {
     this.title = title;
     this.author = author;
     this.id = parseInt(new Date().getTime(), 10);
   }
+}
+class Library {
+  constructor(library= []){
+    this.library = library;
+  }
 
   // set Local
-  static setLocal(books) {
-    localStorage.setItem('LibraryBooks', JSON.stringify(books));
+  setLocal(library) {
+    localStorage.setItem('LibraryBooks', JSON.stringify(library));
   }
 
   // Get items
-  static getItems() {
+  getItems() {
     if (!localStorage.getItem('LibraryBooks')) {
-      books = [];
-      Library.setLocal();
+      this.library = [];
+      this.setLocal();
     } else {
-      books = JSON.parse(localStorage.getItem('LibraryBooks'));
+      this.library = JSON.parse(localStorage.getItem('LibraryBooks'));
     }
   }
 
   // Add Items
-  static addItems(title, author) {
+  addItems(title, author) {
     if (title === '' || author === '') {
       return;
     }
-    const book = new Library(title, author);
-    books.push(book);
-    Library.setLocal(books);
-    Library.showBook(title, author, book.id);
+    console.log('test')
+    const book = new Book(title, author);
+    this.library.push(book);
+    this.setLocal(this.library);
+    this.showBook(title, author, book.id);
   }
 
   // Remove Items
-  static removeItems(removeID) {
-    const itemIndex = books.findIndex(
+  removeItems(removeID) {
+    
+    const itemIndex = this.library.findIndex(
       (elm) => elm.id === parseInt(removeID, 10),
     );
-    books.splice(itemIndex, 1);
-    Library.setLocal(books);
+    console.log(itemIndex)
+    this.library.splice(itemIndex, 1);
+    this.setLocal(this.library);
   }
 
-  static showInitial() {
-    books.forEach((e) => {
+  showInitial() {
+    this.library.forEach((e) => {
       divCont.insertAdjacentHTML(
         'beforeend',
         `
@@ -55,31 +63,34 @@ class Library {
     });
   }
 
-  static showBook(title, author, id) {
+  showBook(title, author, id) {
     const li = document.createElement('li');
     li.innerHTML = `${title} by ${author}   <button id="${id}">remove</button>`;
     divCont.appendChild(li);
   }
 
-  static removeBook(currentID) {
+  removeBook(currentID) {
     const currentBtn = document.getElementById(currentID);
     currentBtn.parentElement.remove();
-    Library.removeItems(currentID);
+    console.log(this.library)
+    this.removeItems(currentID);
   }
 }
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const [title, author] = form.elements;
-  Library.addItems(title.value, author.value);
+  lib.addItems(title.value, author.value);
   title.value = '';
   author.value = '';
   title.focus();
 });
 
 divCont.addEventListener('click', (e) => {
-  Library.removeBook(e.target.id);
+  lib.removeBook(e.target.id);
 });
 
-Library.getItems();
-Library.showInitial();
+
+const lib = new Library()
+lib.getItems();
+lib.showInitial();
