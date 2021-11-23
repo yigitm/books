@@ -1,7 +1,7 @@
 {
   "name": "books",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project consist of library landing page using plain JavaScript & HTML.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/yigitm/books/issues"
   },
-  "homepage": "https://github.com/yigitm/books#readme"
+  "homepage": "https://github.com/yigitm/books#readme",
+  "devDependencies": {
+    "eslint": "^8.3.0"
+  }
 }
