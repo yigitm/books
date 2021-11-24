@@ -80,7 +80,10 @@ class Library {
 }
 
 const lib = new Library();
-const menuItem = document.querySelectorAll('.desktop-nav> ul>li>a');
+const menuItem = document.querySelectorAll('ul>li>a');
+const navMenu = document.querySelector('.nav-items');
+const closeButton = document.querySelector('.fa-window-close');
+const openMenu = document.querySelector('.fa-bars');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -101,8 +104,25 @@ lib.showInitial();
 menuItem.forEach((item) => {
   item.addEventListener('click', () => {
     let href = item.getAttribute('href');
-    let clickedHref = document.getElementById(href);
+    let clickedHref = document.querySelector(href);
+    let removeClass = document.querySelectorAll('section');
+
+    removeClass.forEach((c) => {
+      c.classList.remove('visible');
+    });
+
     clickedHref.classList.add('visible');
-    console.log(clickedHref);
+
+    if (navMenu.classList.contains('visible-mobile-nav')) {
+      navMenu.classList.remove('visible-mobile-nav');
+    }
+  });
+
+  openMenu.addEventListener('click', () => {
+    navMenu.classList.add('visible-mobile-nav');
+  });
+
+  closeButton.addEventListener('click', () => {
+    navMenu.classList.remove('visible-mobile-nav');
   });
 });

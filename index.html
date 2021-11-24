@@ -17,6 +17,14 @@
   <body>
     <header>
       <nav>
+        <div class="nav-items visible-mobile-nav">
+          <i class="far fa-window-close fa-3x"></i>
+          <ul>
+            <li><a href="#list">List</a></li>
+            <li><a href="#add">Add New</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
         <div class="mobile-nav">
           <i class="fas fa-bars fa-3x"></i>
         </div>
@@ -31,7 +39,7 @@
       </nav>
     </header>
     <main>
-      <section id="list" class="default-display">
+      <section id="list" class="default-display visible">
         <h1>All awesome books</h1>
         <ul id="display-books"></ul>
       </section>
