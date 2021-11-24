@@ -75,8 +75,6 @@ class Library {
     currentBtn.parentElement.remove();
     this.removeItems(currentID);
   }
-
-  displayContent() {}
 }
 
 const lib = new Library();
@@ -84,7 +82,7 @@ const menuItem = document.querySelectorAll('ul>li>a');
 const navMenu = document.querySelector('.nav-items');
 const closeButton = document.querySelector('.fa-window-close');
 const openMenu = document.querySelector('.fa-bars');
-const hourPlace = document.querySelector(".hour > p")
+const hourPlace = document.querySelector('.hour > p');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -104,9 +102,9 @@ lib.showInitial();
 
 menuItem.forEach((item) => {
   item.addEventListener('click', () => {
-    let href = item.getAttribute('href');
-    let clickedHref = document.querySelector(href);
-    let removeClass = document.querySelectorAll('section');
+    const href = item.getAttribute('href');
+    const clickedHref = document.querySelector(href);
+    const removeClass = document.querySelectorAll('section');
 
     removeClass.forEach((c) => {
       c.classList.remove('visible');
@@ -127,12 +125,10 @@ menuItem.forEach((item) => {
     navMenu.classList.remove('visible-mobile-nav');
   });
 });
+/* eslint-disable no-undef */
+const { DateTime } = luxon;
 
-var DateTime = luxon.DateTime
-
-let dt = DateTime.now();
-let testHour = dt.toLocaleString(DateTime.DATETIME_MED);
+const dt = DateTime.now();
+const testHour = dt.toLocaleString(DateTime.DATETIME_MED);
 
 hourPlace.innerHTML = testHour;
-console.log(testHour)
-
