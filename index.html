@@ -17,7 +17,7 @@
   <body>
     <header>
       <nav>
-        <div class="nav-items visible-mobile-nav">
+        <div class="nav-items">
           <i class="far fa-window-close fa-3x"></i>
           <ul>
             <li><a href="#list">List</a></li>
@@ -39,6 +39,7 @@
       </nav>
     </header>
     <main>
+      <div class="hour"><p></p></div>
       <section id="list" class="default-display visible">
         <h1>All awesome books</h1>
         <ul id="display-books"></ul>
@@ -72,6 +73,8 @@
     <footer>
       <div class="footer-content">&copy; Microverse - 2021</div>
     </footer>
-    <script src="js/mainclass.js"></script>
+    <script src="js/luxon.js"></script>
+    <script type="module" src="js/mainclass.js"></script>
+    
   </body>
 </html>

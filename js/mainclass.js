@@ -84,6 +84,7 @@ const menuItem = document.querySelectorAll('ul>li>a');
 const navMenu = document.querySelector('.nav-items');
 const closeButton = document.querySelector('.fa-window-close');
 const openMenu = document.querySelector('.fa-bars');
+const hourPlace = document.querySelector(".hour > p")
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -126,3 +127,12 @@ menuItem.forEach((item) => {
     navMenu.classList.remove('visible-mobile-nav');
   });
 });
+
+var DateTime = luxon.DateTime
+
+let dt = DateTime.now();
+let testHour = dt.toLocaleString(DateTime.DATETIME_MED);
+
+hourPlace.innerHTML = testHour;
+console.log(testHour)
+

@@ -86,6 +86,19 @@ form button {
   justify-content: center;
 }
 
+.hour {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.hour p {
+  padding: 10px 7px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
 .desktop-nav {
   display: none;
 }
