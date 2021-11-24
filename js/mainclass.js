@@ -75,9 +75,12 @@ class Library {
     currentBtn.parentElement.remove();
     this.removeItems(currentID);
   }
+
+  displayContent() {}
 }
 
 const lib = new Library();
+const menuItem = document.querySelectorAll('.desktop-nav> ul>li>a');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -94,3 +97,12 @@ divCont.addEventListener('click', (e) => {
 
 lib.getItems();
 lib.showInitial();
+
+menuItem.forEach((item) => {
+  item.addEventListener('click', () => {
+    let href = item.getAttribute('href');
+    let clickedHref = document.getElementById(href);
+    clickedHref.classList.add('visible');
+    console.log(clickedHref);
+  });
+});

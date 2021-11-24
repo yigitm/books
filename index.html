@@ -24,25 +24,41 @@
           <h2>Awesome Books</h2>
           <ul>
             <li><a href="#list">List</a></li>
-            <li><a href="#add-new">Add New</a></li>
+            <li><a href="#add">Add New</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
     </header>
     <main>
-      <section>
+      <section id="list" class="default-display">
         <h1>All awesome books</h1>
         <ul id="display-books"></ul>
       </section>
-      <hr />
-      <section>
+
+      <section id="add" class="default-display">
         <h2>Add a new book</h2>
         <form id="form-books">
           <input type="text" name="title" id="title" placeholder="Title" />
           <input type="text" name="author" id="author" placeholder="Author" />
           <button type="submit">Add Book</button>
         </form>
+      </section>
+
+      <section id="contact" class="default-display">
+        <h1>Contact Information</h1>
+        <h4>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+          reiciendis quia animi, ut incidunt, dignissimos cumque sequi aperiam
+          at a fugiat corporis ipsa iusto adipisci necessitatibus tempora,
+          veritatis quisquam praesentium?
+        </h4>
+
+        <p>
+          <span>e-mail:mail@mail.com</span>
+          <span>phone: +123456789</span>
+          <span>address: Lorem ipsum dolor sit amet</span>
+        </p>
       </section>
     </main>
     <footer>
