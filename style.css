@@ -2,19 +2,19 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family:
+    'Trebuchet MS',
+    'Lucida Sans Unicode',
+    'Lucida Grande',
+    'Lucida Sans',
+    Arial,
+    sans-serif;
 }
 
 nav ul {
   display: flex;
   gap: 10px;
   justify-content: space-between;
-}
-
-nav ul li:nth-child(2) {
-  border-right: 2px solid black;
-  border-left: 2px solid black;
 }
 
 nav ul li {
@@ -39,6 +39,11 @@ section ul li {
   justify-content: space-between;
   padding: 5px;
   list-style-type: none;
+}
+
+nav ul li:nth-child(2) {
+  border-right: 2px solid black;
+  border-left: 2px solid black;
 }
 
 section ul li:nth-child(odd) {
@@ -97,21 +102,23 @@ form button {
 }
 
 footer {
-  display: flex;
-  margin: 10px 5%;
-  padding: 5px;
-  justify-content: flex-start;
-  border: 2px solid black;
+  position: fixed;
+  width: 100%;
+  bottom: 3px;
 }
 
-main {
-  heigth: 100vh;
+.footer-content {
+  padding: 5px;
+  width: 90%;
+  border: 2px solid black;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .mobile-nav {
     display: none;
   }
+
   .desktop-nav {
     display: flex;
     justify-content: space-between;
