@@ -56,7 +56,7 @@ class Library {
       divCont.insertAdjacentHTML(
         'beforeend',
         `
-              <li>${e.title} by ${e.author}   <button id="${e.id}">remove</button></li>
+              <li>${e.title} by ${e.author}   <button id="${e.id}">Remove</button></li>
             `,
       );
     });
