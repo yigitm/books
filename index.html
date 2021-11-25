@@ -12,11 +12,19 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Document</title>
+    <title>Awesome - Books</title>
   </head>
   <body>
     <header>
       <nav>
+        <div class="nav-items">
+          <i class="far fa-window-close fa-3x"></i>
+          <ul>
+            <li><a href="#list">List</a></li>
+            <li><a href="#add">Add New</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
         <div class="mobile-nav">
           <i class="fas fa-bars fa-3x"></i>
         </div>
@@ -24,19 +32,20 @@
           <h2>Awesome Books</h2>
           <ul>
             <li><a href="#list">List</a></li>
-            <li><a href="#add-new">Add New</a></li>
+            <li><a href="#add">Add New</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
     </header>
     <main>
-      <section>
+      <div class="hour"><p></p></div>
+      <section id="list" class="default-display visible">
         <h1>All awesome books</h1>
         <ul id="display-books"></ul>
       </section>
-      <hr />
-      <section>
+
+      <section id="add" class="default-display">
         <h2>Add a new book</h2>
         <form id="form-books">
           <input type="text" name="title" id="title" placeholder="Title" />
@@ -44,10 +53,28 @@
           <button type="submit">Add Book</button>
         </form>
       </section>
+
+      <section id="contact" class="default-display">
+        <h1>Contact Information</h1>
+        <h4>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+          reiciendis quia animi, ut incidunt, dignissimos cumque sequi aperiam
+          at a fugiat corporis ipsa iusto adipisci necessitatibus tempora,
+          veritatis quisquam praesentium?
+        </h4>
+
+        <p>
+          <span>e-mail:mail@mail.com</span>
+          <span>phone: +123456789</span>
+          <span>address: Lorem ipsum dolor sit amet</span>
+        </p>
+      </section>
     </main>
     <footer>
       <div class="footer-content">&copy; Microverse - 2021</div>
     </footer>
-    <script src="js/mainclass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.1.1/build/global/luxon.min.js"></script>
+    <script type="module" src="js/mainclass.js"></script>
+    
   </body>
 </html>

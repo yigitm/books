@@ -91,14 +91,31 @@ form button {
   justify-content: center;
 }
 
+.hour {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.hour p {
+  padding: 10px 7px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
 .desktop-nav {
   display: none;
 }
 
 .mobile-nav {
   display: flex;
-  padding: 30px;
   justify-content: flex-end;
+}
+
+.mobile-nav,
+.visible-mobile-nav {
+  padding: 30px;
 }
 
 footer {
@@ -112,6 +129,49 @@ footer {
   width: 90%;
   border: 2px solid black;
   margin: 0 auto;
+}
+
+.default-display {
+  display: none;
+}
+
+.visible {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h4 {
+  width: 75%;
+}
+
+span {
+  display: block;
+}
+
+.nav-items {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  display: none;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+}
+
+.visible-mobile-nav {
+  display: flex;
+  padding: 30px;
+}
+
+.nav-items ul {
+  flex-direction: column;
+}
+
+.nav-items ul li:nth-child(2) {
+  border: none;
 }
 
 @media (min-width: 768px) {
