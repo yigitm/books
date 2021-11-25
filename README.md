@@ -12,7 +12,7 @@ This landing page is designed using plain JavaScript to create and manuplate the
 
 #### Mobile Design
 
-<img src="images/mobile-home.png" height="200px" style="margin-left: 50px"/>
+<img src="images/mobile-home.png"/>
 
 ## Live Demo :
 
