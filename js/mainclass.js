@@ -128,7 +128,6 @@ menuItem.forEach((item) => {
 /* eslint-disable no-undef */
 const { DateTime } = luxon;
 
-const dt = DateTime.now();
-const testHour = dt.toLocaleString(DateTime.DATETIME_MED);
-
-hourPlace.innerHTML = testHour;
+setInterval(() => {
+  hourPlace.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED)}`;
+}, 1000);
