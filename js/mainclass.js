@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
-
-const form = document.getElementById('form-books');
+document.addEventListener('DOMContentLoaded', () =>{
+  const form = document.getElementById('form-books');
 const divCont = document.getElementById('display-books');
 
 class Book {
@@ -94,7 +94,10 @@ form.addEventListener('submit', (e) => {
 });
 
 divCont.addEventListener('click', (e) => {
-  lib.removeBook(e.target.id);
+  if(e.target.id && e.target.id !== 'display-books'){
+    console.log(e.target.id)
+    lib.removeBook(e.target.id);
+  }
 });
 
 lib.getItems();
@@ -131,3 +134,4 @@ const { DateTime } = luxon;
 setInterval(() => {
   hourPlace.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED)}`;
 }, 1000);
+})
