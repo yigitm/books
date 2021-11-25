@@ -1,15 +1,28 @@
 # PROJECT: AWESOME BOOKS
 
-This project consist of library landing page using plain JavaScript & HTML.
+This project consist of library landing page using plain JavaScript & HTML & CSS.
 
 ## Project Design:
 
 This landing page is designed using plain JavaScript to create and manuplate the DOM elements by using class structure and browser local storage to keep user data.
 
+#### Desktop Design
+
+![Desktop Design](images/home.png)
+
+#### Mobile Design
+
+<img src="images/mobile-home.png" height="200px" style="margin-left: 50px"/>
+
+## Live Demo :
+
+[Live Link](https://yigitm.github.io/books/)
+
 ## Built With :
 
 - HTML
-- JS
+- CSS
+- JavaScript
 
 ## Authors :
 
